@@ -17,8 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class BreweryClientTest {
 
-    private String apihost;
-
     @Autowired
     BreweryClient breweryClient;
 
