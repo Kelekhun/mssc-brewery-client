@@ -18,19 +18,17 @@ class CustomerClientTest {
     @Autowired
     CustomerClient customerClient;
 
-
     @Test
     void getCustomerById() {
 
         CustomerDTO customerDTO = customerClient.getCustomerById(UUID.randomUUID());
         assertNotNull(customerDTO);
         log.info("Value for CustomerDTO is: " + customerDTO);
-
-
     }
 
     @Test
     void shaveNewCustomer() {
+
         CustomerDTO customerDTO = CustomerDTO
                 .builder()
                 .customerName("Sony Khadka")
@@ -43,7 +41,6 @@ class CustomerClientTest {
 
         assertNotNull(customerDTO);
         assertNotNull(uri);
-
     }
 
     @Test
@@ -62,10 +59,7 @@ class CustomerClientTest {
 
     @Test
     void deleteCustomer() {
-
         customerClient.deleteCustomer(UUID.randomUUID());
         log.info("Deleted CustomerDTO with customerID: " + UUID.randomUUID().toString());
-
-
     }
 }
