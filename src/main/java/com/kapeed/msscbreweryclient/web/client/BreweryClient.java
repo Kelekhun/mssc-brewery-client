@@ -6,9 +6,10 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
 import java.util.UUID;
 
-@ConfigurationProperties(prefix = "com.kappe.brewery", ignoreUnknownFields = false)
+@ConfigurationProperties(prefix = "com.kapeed.brewery", ignoreUnknownFields = false)
 @Component
 public class BreweryClient {
 
@@ -25,6 +26,9 @@ public class BreweryClient {
         return restTemplate.getForObject(apihost+BEER_PATH_V1+uuid.toString(), BeerDTO.class);
     }
 
+    public URI shaveNewBeer(BeerDTO beerDTO){
+        return restTemplate.postForLocation(apihost + BEER_PATH_V1, beerDTO);
+    }
     public void setApihost(String apihost){
         this.apihost=apihost;
     }
